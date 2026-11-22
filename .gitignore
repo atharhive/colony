@@ -8,3 +8,6 @@ __pycache__/
 reports/
 .venv/
 runs/
+*.egg-info/
+build/
+.pytest_cache/
