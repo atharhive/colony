@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "colony"
+version = "3.0.0"
+description = "A swarm that prices a question before it answers it."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Athar", email = "169134776+atharhive@users.noreply.github.com" }]
+keywords = ["telegraph", "agents", "due-diligence", "sanctions", "credit-risk", "x402"]
+dependencies = [
+  "eth-account>=0.11",
+  "eth-utils>=2.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+colony = "colony.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/atharhive/colony"
+Issues = "https://github.com/atharhive/colony/issues"
+
+[tool.setuptools.packages.find]
+include = ["colony*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
