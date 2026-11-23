@@ -2,6 +2,8 @@
 
 ![Colony demo](docs/demo/banner.gif)
 
+![Colony architecture](docs/architecture.png)
+
 # Colony
 
 **A swarm that prices a question before it answers it.**

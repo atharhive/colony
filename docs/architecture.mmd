@@ -1,0 +1,50 @@
+%% Colony: a swarm that prices a question before it answers it.
+%% Rendered into docs/architecture.png. Telegraph Season II, Mission 03.
+
+flowchart TD
+  Q["Question: is this counterparty safe for 60-day terms?"]
+
+  subgraph PLAN["1 · plan"]
+    direction TB
+    C["7 claims, load-bearing first<br/>sanctions · registry<br/>filings · identity<br/>news · macro · fx"]
+    B["budget cap · $0.25 per decision"]
+  end
+
+  subgraph SCOUTS["2 · scout"]
+    direction TB
+    S1["one claim, one ask<br/>cheapest adequate miner"]
+    S2["hard failure → next miner<br/>failed asks are free"]
+    S3["no retry after a refused payment"]
+  end
+
+  subgraph MAP["3 · map"]
+    direction TB
+    M1["settled"]:::good
+    M2["contested"]:::warn
+    M3["blind"]:::dim
+    M4["dead"]:::bad
+    M5["the queen reads this map,<br/>never the raw answer"]
+  end
+
+  subgraph QUEEN["4 · queen"]
+    direction TB
+    E1["escalate only where the verdict could change"]
+    E2["contested, or dead load-bearing"]
+    E3["max 2 claims · max 2 scouts each"]
+  end
+
+  subgraph OUT["5 · decision"]
+    direction TB
+    V["verdict<br/>ALLOW / HOLD / BLOCK"]
+    R["memo<br/>footnote or omit"]
+    U["bundle<br/>facts + receipts + sha256"]
+    X["verifier<br/>VERIFIED / TAMPERED"]
+  end
+
+  Q --> PLAN --> SCOUTS --> MAP --> QUEEN --> V
+  V --> R --> U --> X
+
+  classDef good fill:#0f1a15,stroke:#2c4a3a,color:#7ed69b
+  classDef warn fill:#1a160f,stroke:#4a3f22,color:#f0be6e
+  classDef dim fill:#0c1018,stroke:#2a2f3d,color:#8b93a7
+  classDef bad fill:#1a1010,stroke:#4a2626,color:#ee8282
