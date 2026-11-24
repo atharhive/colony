@@ -186,6 +186,7 @@ truth/               evaluation material contributed to the pool
 - [Usage](docs/USAGE.md) - one decision end to end
 - [Troubleshooting](docs/TROUBLESHOOTING.md) - every failure these runs hit
 - [Evidence index](docs/EVIDENCE.md) - five minutes for a reviewer
+- [Adoption](docs/ADOPTION.md) - independent work built on Colony
 
 ## Status
 
